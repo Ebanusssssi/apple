@@ -1,8 +1,8 @@
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { heroVideo, smallHeroVideo } from "../utils";
-import { useState } from "react";
-import { useEffect } from "react";
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { heroVideo, smallHeroVideo } from '../utils';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const Hero = () => {
   const [videoSrc, setVideoSrc] = useState(
@@ -18,16 +18,16 @@ const Hero = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("resize", handleVideoSrcSet);
+    window.addEventListener('resize', handleVideoSrcSet);
 
     return () => {
-      window.removeEventListener("resize", handleVideoSrcSet);
+      window.removeEventListener('resize', handleVideoSrcSet);
     };
   }, []);
 
   useGSAP(() => {
-    gsap.to("#hero", { opacity: 1, delay: 2.3, duration: 1 });
-    gsap.to("#cta", { opacity: 1, y: -50, delay: 2.3, duration: 1 });
+    gsap.to('#hero', { opacity: 1, delay: 2.3, duration: 1 });
+    gsap.to('#cta', { opacity: 1, y: -50, delay: 2.3, duration: 1 });
   }, []);
 
   return (
@@ -39,6 +39,7 @@ const Hero = () => {
         <div className="md:w-10/12 w-9/12">
           <video
             className="pointer-events-none"
+            preload
             autoPlay
             muted
             playsInline={true}
