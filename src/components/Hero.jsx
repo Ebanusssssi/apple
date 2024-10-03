@@ -1,17 +1,9 @@
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { heroVideo, smallHeroVideo } from '../utils';
-import { useRef, useState } from 'react';
-import { useEffect } from 'react';
+import { useState } from 'react';
 
 const Hero = () => {
-  // changes
-  const videoRef = useRef([]);
-
-  useEffect(() => {
-    videoRef.current.play();
-  }, []);
-
   const [videoSrc, setVideoSrc] = useState(
     window.innerWidth < 760 ? smallHeroVideo : heroVideo
   );
@@ -50,7 +42,6 @@ const Hero = () => {
             muted
             playsInline={true}
             key={videoSrc}
-            ref={videoRef}
           >
             <source src={videoSrc} type="video/mp4" />
           </video>
